@@ -1,78 +1,49 @@
 <template>
-  <main class="main">
+  <main class="home">
     <AppSliderProgress
-      class="main__slider-counter"
+      class="home__slider-counter"
       :progress="activeSlide"
-      :progressSlide="getProgressSlide"
+      :progress-slide="getProgressSlide"
     ></AppSliderProgress>
     <AppSlider
-      class="main__slider"
-      @slideChange="setActiveIndex"
-      :slideList="slideList"
+      ref="slider"
+      class="home__slider"
+      :slide-list="slideList"
+      @slideChange="onSlideChange"
     ></AppSlider>
-    <AppArrow class="main__slider-arrow"></AppArrow>
+    <AppSliderControl
+      v-if="activeSlide > 1"
+      class="home__slider-control home__slider-control_left"
+      @clickBtn="slide('prev')"
+    ></AppSliderControl>
+    <AppSliderControl
+      v-if="!isSlideEnd"
+      class="home__slider-control home__slider-control_right"
+      @clickBtn="slide('next')"
+    ></AppSliderControl>
   </main>
 </template>
 
 <script>
 import AppSlider from "@/components/AppSlider"
-import AppArrow from "@/components/AppArrow"
+import AppSliderControl from "@/components/AppSliderControl"
 import AppSliderProgress from "@/components/AppSliderProgress"
+import dataSlider from "@/helpers/dataSlider"
 
 export default {
   name: "PageHome",
 
   components: {
     AppSlider,
-    AppArrow,
+    AppSliderControl,
     AppSliderProgress,
   },
 
   data() {
     return {
       activeSlide: 1,
-      slideList: [
-        {
-          id: 1,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 2,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 3,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 4,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 5,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 6,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 7,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-        {
-          id: 8,
-          image: require(`@/assets/images/racer.png`),
-          text: `Для примера мы показали вам его лицо.  В первой серии он прячется в подвале за мониторами, и пусть борода не собьёт вас с толку. Найдите героя и нажмите  на паузу — ему не терпится отдать вам промокод.`,
-        },
-      ],
+      slideList: dataSlider,
+      isSlideEnd: false,
     }
   },
 
@@ -83,17 +54,30 @@ export default {
   },
 
   methods: {
+    onSlideChange(evt) {
+      this.setActiveIndex(evt)
+      this.toggleSlideControls(evt)
+    },
+
     setActiveIndex(evt) {
       this.activeSlide = evt.activeIndex + 1
+    },
+
+    toggleSlideControls(evt) {
+      this.isSlideEnd = evt.isEndSlide
+    },
+
+    slide(direction) {
+      this.$refs.slider.slide(direction)
     },
   },
 }
 </script>
 
 <style lang="scss">
-.main {
-  @include container;
-
-  padding-bottom: $space-l;
+.home__slider-control {
+  &_left {
+    transform: rotate(180deg);
+  }
 }
 </style>

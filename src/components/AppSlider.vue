@@ -47,8 +47,6 @@ export default {
         watchSlidesVisibility: true,
         spaceBetween: 14,
         slidesPerView: 1,
-        loop: true,
-        loopAdditionalSlides: 10,
         slideToClickedSlide: true,
         centeredSlides: true,
         slideActiveClass: "app-slider__slide_active",
@@ -64,16 +62,22 @@ export default {
   methods: {
     emitSlideChange() {
       const activeIndex = this.slider.swiperInstance.realIndex
-      this.$emit("slideChange", { activeIndex })
+      const isEndSlide = this.slider.swiperInstance.isEnd
+
+      this.$emit("slideChange", { activeIndex, isEndSlide })
     },
 
-    slideChange(direction) {
-      // if (direction === "next") {
-      //   this.$refs.slider.$swiper.slideNext()
-      // } else {
-      //   this.$refs.slider.$swiper.slidePrev()
-      // }
-      console.log("slideChange", direction)
+    slide(direction) {
+      switch (direction) {
+        case "next":
+          this.$refs.slider.$swiper.slideNext()
+          break
+        case "prev":
+          this.$refs.slider.$swiper.slidePrev()
+          break
+        default:
+          return
+      }
     },
   },
 }
