@@ -94,13 +94,13 @@ export default {
   transform: translate(-50%, 0%);
 
   &_left {
-    left: 150px;
+    left: 10%;
 
     transform: rotate(180deg);
   }
 
   &_right {
-    right: 150px;
+    right: 10%;
   }
 }
 </style>

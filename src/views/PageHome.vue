@@ -11,13 +11,15 @@
         <IconArrowLong class="home__link-scroll-icon" />
       </template>
     </AppLink>
+    <AppLink class="home__link-menu" :data-item="linkKinopoisk" icon="right">
+      <template> <AppSideMenu class="home__side-menu" /></template>
+    </AppLink>
     <AppLink class="home__link-promo" :data-item="linkKinopoisk" icon="right">
       <template #default>Искать промокод</template>
       <template #icon>
         <IconArrowShort class="home__link-promo-icon" />
       </template>
     </AppLink>
-    <AppSideMenu />
   </div>
 </template>
 
@@ -79,5 +81,11 @@ export default {
   z-index: 10;
 
   transform: translate(0%, -50%) rotate(-90deg);
+}
+
+.home__side-menu {
+  position: absolute;
+  top: 60%;
+  left: 2%;
 }
 </style>

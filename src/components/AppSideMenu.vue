@@ -1,17 +1,19 @@
 <template>
   <div class="menu">
-    <AppMenuItem class="menu__item" />
+    <AppSideMenuItem class="menu__item"><IconMenuItem /></AppSideMenuItem>
   </div>
 </template>
 
 <script>
-import AppMenuItem from "@/components/AppMenuItem"
+import AppSideMenuItem from "@/components/AppMenuItem"
+import IconMenuItem from "@/components/icons/IconMenuItem"
 
 export default {
-  name: "AppSideMenu",
+  name: "AppSideMenuItem",
 
   components: {
     AppMenuItem,
+    IconMenuItem,
   },
 }
 </script>
