@@ -11,7 +11,9 @@
         :key="slide.id"
         class="swiper-slide app-slider__slide"
       >
-        <img class="app-slider__img" :src="slide.image" alt="slide" />
+        <div class="app-slider__img-box">
+          <img class="app-slider__img" :src="slide.image" alt="slide" />
+        </div>
         <p class="app-slider__slide-content">
           {{ slide.text }}
         </p>
@@ -85,17 +87,47 @@ export default {
 
 <style lang="scss">
 .app-slider {
-  align-content: center;
-  width: 100%;
-  height: 500px;
+  @include container;
+
+  width: 900px;
+  margin: 0 auto;
   overflow: hidden;
 
   &__wrapper {
     display: flex;
+    margin-top: 50px;
   }
 
   &__slide {
     flex-shrink: 0;
   }
+}
+
+.app-slider__img-box {
+  width: 100%;
+  max-width: 303px;
+  height: 214px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.app-slider__img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  line-height: 0;
+}
+
+.app-slider__slide-content {
+  @include container;
+
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
 }
 </style>

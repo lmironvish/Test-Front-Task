@@ -1,6 +1,6 @@
 <template>
-  <button class="burger" @click="emitClickBtn">
-    <div class="burger__icon-box">
+  <button class="menu-item" @click="emitClickBtn">
+    <div class="menu-item__icon-box">
       <slot name="default"> </slot>
     </div>
   </button>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "AppBurger",
+  name: "AppMenuItem",
 
   methods: {
     emitClickBtn() {
@@ -19,12 +19,12 @@ export default {
 </script>
 
 <style lang="scss">
-.burger {
-  display: block;
-  margin: 0;
-  padding: 0;
+// .burger {
+//   display: block;
+//   margin: 0;
+//   padding: 0;
 
-  background: none;
-  border: none;
-}
+//   background: none;
+//   border: none;
+// }
 </style>
