@@ -25,14 +25,15 @@ export default {
 
 <style lang="scss">
 .header {
-  @include container;
-
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 24px 34px;
 }
 

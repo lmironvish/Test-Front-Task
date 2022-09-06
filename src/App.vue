@@ -1,4 +1,4 @@
-<template>
+<template class="app-bg">
   <div id="app" class="app">
     <TheHeader class="app__header" />
     <router-view />
@@ -18,12 +18,16 @@ export default {
 
 <style lang="scss">
 .app {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
+  min-height: 500px;
+  max-height: 700px;
 
-  width: 100%;
-  height: 100%;
-
-  background: url("@/assets/images/banner.png");
-  background-size: 100% 100%;
+  background-image: url("~assets/images/banner.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 </style>

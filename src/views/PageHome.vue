@@ -11,9 +11,6 @@
         <IconArrowLong class="home__link-scroll-icon" />
       </template>
     </AppLink>
-    <AppLink class="home__link-menu" :data-item="linkKinopoisk" icon="right">
-      <template> <AppSideMenu class="home__side-menu" /></template>
-    </AppLink>
     <AppLink class="home__link-promo" :data-item="linkKinopoisk" icon="right">
       <template #default>Искать промокод</template>
       <template #icon>
@@ -27,7 +24,6 @@
 import ThePageHomeSlider from "@/components/ThePageHomeSlider"
 import AppTitle from "@/components/AppTitle"
 import AppLink from "@/components/AppLink"
-import AppSideMenu from "@/components/AppSideMenu"
 import IconArrowLong from "@/components/icons/IconArrowLong"
 import IconArrowShort from "@/components/icons/IconArrowShort"
 
@@ -38,7 +34,6 @@ export default {
     ThePageHomeSlider,
     IconArrowLong,
     IconArrowShort,
-    AppSideMenu,
     AppTitle,
     AppLink,
   },
@@ -76,7 +71,6 @@ export default {
 
 .home__link-scroll {
   position: absolute;
-  bottom: -30%;
   left: -3%;
   z-index: 10;
 

@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import AppSideMenuItem from "@/components/AppMenuItem"
+import AppSideMenuItem from "@/components/AppSideMenuItem"
 import IconMenuItem from "@/components/icons/IconMenuItem"
 
 export default {
   name: "AppSideMenuItem",
 
   components: {
-    AppMenuItem,
+    AppSideMenuItem,
     IconMenuItem,
   },
 }

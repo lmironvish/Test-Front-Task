@@ -29,7 +29,7 @@ export default {
 <style lang="scss">
 .slider-control {
   display: block;
-  margin: 0;
+  margin: 5%;
   padding: 0;
 
   background: none;

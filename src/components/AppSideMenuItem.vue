@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-// .burger {
+// .menu-item__icon-box {
 //   display: block;
 //   margin: 0;
 //   padding: 0;

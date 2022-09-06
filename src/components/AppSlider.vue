@@ -5,17 +5,19 @@
       class="app-slider__container"
       :options="sliderOptions"
       @slide-change="emitSlideChange"
+      @set-translate="setSkyTranslate"
     >
       <swiper-slide
-        v-for="slide in slideList"
-        :key="slide.id"
+        v-for="slideListItem in slideList"
+        :key="slideListItem.id"
         class="swiper-slide app-slider__slide"
       >
         <div class="app-slider__img-box">
-          <img class="app-slider__img" :src="slide.image" alt="slide" />
+          <img class="app-slider__img" :src="slideListItem.image" alt="slide" />
         </div>
+        <img class="app-slider__bg-img" src="@/assets/images/frontClouds.png" />
         <p class="app-slider__slide-content">
-          {{ slide.text }}
+          {{ slideListItem.text }}
         </p>
       </swiper-slide>
     </swiper>
@@ -32,6 +34,12 @@ export default {
     Swiper,
     SwiperSlide,
   },
+
+  // data() {
+  //   return {
+  //     skyTranslate: 0,
+  //   }
+  // },
 
   props: {
     slideList: {
@@ -56,6 +64,12 @@ export default {
       }
     },
 
+    // getSkyTranslate() {
+    //   return {
+    //     transform: `translate3d(${this.skyTranslate * -1}px, 0px, 0px)`,
+    //   }
+    // },
+
     slider() {
       return this.$refs.slider
     },
@@ -68,6 +82,10 @@ export default {
 
       this.$emit("slideChange", { activeIndex, isEndSlide })
     },
+
+    // setSkyTranslate(evt) {
+    //   this.skyTranslate = evt
+    // },
 
     slide(direction) {
       switch (direction) {
@@ -89,7 +107,8 @@ export default {
 .app-slider {
   @include container;
 
-  width: 900px;
+  width: 70%;
+  height: 370px;
   margin: 0 auto;
   overflow: hidden;
 
@@ -105,8 +124,8 @@ export default {
 
 .app-slider__img-box {
   width: 100%;
-  max-width: 303px;
-  height: 214px;
+  max-width: 35%;
+  height: 35%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -119,8 +138,23 @@ export default {
   line-height: 0;
 }
 
+.app-slider__bg-img {
+  position: fixed;
+
+  top: 0;
+
+  width: 100%;
+  margin: 0 auto;
+
+  line-height: 0;
+
+  pointer-events: none;
+}
+
 .app-slider__slide-content {
   @include container;
+
+  position: relative;
 
   display: block;
   width: 100%;

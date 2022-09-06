@@ -81,10 +81,11 @@ export default {
 
 .page-home-slider__slider-progress {
   position: absolute;
-  top: 0;
+  top: -20px;
   left: 50%;
+  z-index: 10px;
 
-  transform: translate(0, -50%);
+  transform: translate(-50%, -100%);
 }
 
 .page-home-slider__slider-control {
@@ -94,13 +95,20 @@ export default {
   transform: translate(-50%, 0%);
 
   &_left {
-    left: 10%;
+    left: 0;
 
     transform: rotate(180deg);
   }
 
   &_right {
-    right: 10%;
+    right: 0;
   }
+}
+
+.page-home-slider__sky {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
 }
 </style>
