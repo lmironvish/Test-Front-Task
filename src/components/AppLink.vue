@@ -1,7 +1,7 @@
 <template>
   <component
     :is="dataItem.tag"
-    :to="{ name: dataItem.to }"
+    :to="dataItem.to"
     :link="dataItem.link"
     :target="dataItem.target"
     class="link"
@@ -67,21 +67,21 @@ export default {
   text-decoration: none;
 
   cursor: pointer;
-}
 
-.link__content {
-  order: 1;
+  &__content {
+    order: 1;
 
-  color: inherit;
-}
+    color: inherit;
+  }
 
-.link_icon-left .link__icon {
-  order: -1;
-  margin-right: 10px;
-}
+  &_icon-left .link__icon {
+    order: -1;
+    margin-right: 10px;
+  }
 
-.link_icon-right .link__icon {
-  order: 2;
-  margin-left: 10px;
+  &_icon-right .link__icon {
+    order: 2;
+    margin-left: 10px;
+  }
 }
 </style>

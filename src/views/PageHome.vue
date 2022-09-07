@@ -53,33 +53,49 @@ export default {
 
 <style lang="scss">
 .home {
-  @include container;
-
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 34px;
+}
+
+.home__title {
+  margin-bottom: 30px;
+}
+
+.home__slider {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 34px;
 }
 
 .home__link-kinopoisk {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 24px;
   z-index: 10;
 
-  transform: translate(0%, -50%) rotate(90deg);
+  transform: translate(0%, 100%) rotate(90deg);
+  transform-origin: top right;
 }
 
 .home__link-scroll {
   position: absolute;
-  left: -3%;
+  bottom: 24px;
+  left: 24px;
   z-index: 10;
 
-  transform: translate(0%, -50%) rotate(-90deg);
+  transform: translate(0%, 0%) rotate(-90deg);
+  transform-origin: top left;
 }
 
-.home__side-menu {
-  position: absolute;
-  top: 60%;
-  left: 2%;
+.home__link-promo {
+  margin-bottom: auto;
 }
 </style>

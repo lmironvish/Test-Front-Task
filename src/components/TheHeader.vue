@@ -34,16 +34,16 @@ export default {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 24px 34px;
-}
+  padding: 20px 30px;
 
-.header__logo {
-  color: $var-color-black;
-}
+  &__logo {
+    color: $var-color-black;
+  }
 
-.header__burger {
-  position: absolute;
-  top: 37px;
-  left: 34px;
+  &__burger {
+    position: absolute;
+    top: 37px;
+    left: 34px;
+  }
 }
 </style>

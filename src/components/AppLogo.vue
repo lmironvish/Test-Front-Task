@@ -47,9 +47,9 @@ export default {
 
   color: inherit;
   text-decoration: none;
-}
 
-.logo__icon-box {
-  color: inherit;
+  &__icon-box {
+    color: inherit;
+  }
 }
 </style>

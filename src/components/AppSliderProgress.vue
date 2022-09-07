@@ -27,13 +27,13 @@ export default {
 
   border-radius: 50%;
   box-shadow: 0 5px 25px 0 rgb(0 0 0 / 20%);
-}
 
-.slider-progress__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

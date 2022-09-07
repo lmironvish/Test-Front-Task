@@ -1,26 +1,37 @@
 <template>
-  <div v-if="slideList" class="app-slider">
+  <div v-if="slideList" class="slider">
     <swiper
       ref="slider"
-      class="app-slider__container"
+      class="slider__container"
       :options="sliderOptions"
       @slide-change="emitSlideChange"
-      @set-translate="setSkyTranslate"
+      @set-translate="test"
     >
       <swiper-slide
-        v-for="slideListItem in slideList"
+        v-for="(slideListItem, index) in slideList"
         :key="slideListItem.id"
-        class="swiper-slide app-slider__slide"
+        class="swiper-slide slider__slide"
       >
-        <div class="app-slider__img-box">
-          <img class="app-slider__img" :src="slideListItem.image" alt="slide" />
+        <div class="slider__img-box">
+          <img class="slider__img" :src="slideListItem.image" alt="slide" />
         </div>
-        <img class="app-slider__bg-img" src="@/assets/images/frontClouds.png" />
-        <p class="app-slider__slide-content">
+        <img
+          v-if="index === 0"
+          class="slider__img-sky"
+          :src="require('@/assets/images/frontClouds.png')"
+          alt="slide"
+          :style="[{ transform: `translate3d(${translate * -1}px, 0px, 0px)` }]"
+        />
+        <p class="slider__slide-content">
           {{ slideListItem.text }}
         </p>
       </swiper-slide>
     </swiper>
+    <img
+      class="slider__img-sky-bottom"
+      :src="require('@/assets/images/frontClouds.png')"
+      alt="slide"
+    />
   </div>
 </template>
 
@@ -35,17 +46,17 @@ export default {
     SwiperSlide,
   },
 
-  // data() {
-  //   return {
-  //     skyTranslate: 0,
-  //   }
-  // },
-
   props: {
     slideList: {
       type: Array,
       required: true,
     },
+  },
+
+  data() {
+    return {
+      translate: 0,
+    }
   },
 
   computed: {
@@ -57,18 +68,13 @@ export default {
         watchSlidesVisibility: true,
         spaceBetween: 14,
         slidesPerView: 1,
+        draggable: true,
         slideToClickedSlide: true,
         centeredSlides: true,
-        slideActiveClass: "app-slider__slide_active",
-        wrapperClass: "app-slider__wrapper",
+        slideActiveClass: "slider__slide_active",
+        wrapperClass: "slider__wrapper",
       }
     },
-
-    // getSkyTranslate() {
-    //   return {
-    //     transform: `translate3d(${this.skyTranslate * -1}px, 0px, 0px)`,
-    //   }
-    // },
 
     slider() {
       return this.$refs.slider
@@ -83,9 +89,10 @@ export default {
       this.$emit("slideChange", { activeIndex, isEndSlide })
     },
 
-    // setSkyTranslate(evt) {
-    //   this.skyTranslate = evt
-    // },
+    test(evt) {
+      this.translate = evt
+      console.log(evt)
+    },
 
     slide(direction) {
       switch (direction) {
@@ -104,64 +111,88 @@ export default {
 </script>
 
 <style lang="scss">
-.app-slider {
-  @include container;
+.slider {
+  position: relative;
+  z-index: 1;
 
-  width: 70%;
-  height: 370px;
-  margin: 0 auto;
-  overflow: hidden;
+  align-content: center;
+  width: 100%;
 
   &__wrapper {
     display: flex;
-    margin-top: 50px;
   }
 
   &__slide {
     flex-shrink: 0;
   }
-}
 
-.app-slider__img-box {
-  width: 100%;
-  max-width: 35%;
-  height: 35%;
-  margin: 0 auto;
-  overflow: hidden;
-}
+  &__container {
+    position: relative;
 
-.app-slider__img {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
+    overflow: hidden;
+  }
 
-  line-height: 0;
-}
+  &__img-box {
+    position: relative;
+    z-index: 1;
 
-.app-slider__bg-img {
-  position: fixed;
+    width: 100%;
+    max-width: 303px;
+    height: 214px;
+    margin: 0 auto;
 
-  top: 0;
+    pointer-events: none;
+  }
 
-  width: 100%;
-  margin: 0 auto;
+  &__img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 
-  line-height: 0;
+    line-height: 0;
+  }
 
-  pointer-events: none;
-}
+  &__slide-content {
+    position: relative;
+    z-index: 3;
 
-.app-slider__slide-content {
-  @include container;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 
-  position: relative;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
 
-  display: block;
-  width: 100%;
-  margin: 0 auto;
+    pointer-events: none;
+  }
 
-  font-size: 20px;
-  line-height: 32px;
-  text-align: center;
+  &__img-sky {
+    position: absolute;
+    top: -58px;
+    left: -260px;
+    z-index: 2;
+
+    width: 1440px;
+    height: auto;
+
+    transition: all 0.3s;
+
+    pointer-events: none;
+  }
+
+  &__img-sky-bottom {
+    position: absolute;
+    top: -58px;
+    left: -260px;
+    z-index: -1;
+
+    width: 1440px;
+    height: auto;
+
+    transition: all 0.3s;
+
+    pointer-events: none;
+  }
 }
 </style>

@@ -79,6 +79,10 @@ export default {
   position: relative;
 }
 
+.page-home-slider__slider {
+  max-width: 1200px;
+}
+
 .page-home-slider__slider-progress {
   position: absolute;
   top: -20px;
@@ -91,24 +95,25 @@ export default {
 .page-home-slider__slider-control {
   position: absolute;
   top: 30%;
+  z-index: 10;
 
   transform: translate(-50%, 0%);
 
   &_left {
-    left: 0;
+    left: 0%;
 
     transform: rotate(180deg);
   }
 
   &_right {
-    right: 0;
+    right: 0%;
   }
-}
 
-.page-home-slider__sky {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 100;
+  &__sky {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+  }
 }
 </style>

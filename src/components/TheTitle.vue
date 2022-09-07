@@ -16,9 +16,9 @@ export default {
 }
 
 .title__caption {
-  // @include caption-h1;
+  @include caption-h1;
 
-  // margin-bottom: $space-m;
+  margin-bottom: $space-m;
 
   color: $var-color-black;
   text-align: center;
