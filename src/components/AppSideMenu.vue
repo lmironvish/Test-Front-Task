@@ -9,12 +9,7 @@
       :target="dataItem.target"
       class="menu-item"
     >
-      <span class="menu-item__numeration">
-        <slot name="numeration" />
-      </span>
-      <span class="menu-item__content">
-        <slot name="content" />
-      </span>
+      <span class="menu-item__content"><slot name="content" /></span>
     </component>
   </div>
 </template>

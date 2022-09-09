@@ -21,8 +21,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
-  min-width: 900px;
-  max-width: 1440px;
   height: 100vh;
   min-height: 500px;
   max-height: 700px;

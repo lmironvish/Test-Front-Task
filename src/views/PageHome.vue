@@ -5,6 +5,10 @@
     <AppLink class="home__link-kinopoisk" :data-item="linkKinopoisk"
       >hd.kinopoisk.ru</AppLink
     >
+    <AppSideMenu>
+      <template #numeration>Скрольте вниз</template>
+      <template #content>Скрольте вниз</template>
+    </AppSideMenu>
     <AppLink class="home__link-scroll" :data-item="linkKinopoisk" icon="left">
       <template #default>Скрольте вниз</template>
       <template #icon>
@@ -24,6 +28,7 @@
 import ThePageHomeSlider from "@/components/ThePageHomeSlider"
 import AppTitle from "@/components/AppTitle"
 import AppLink from "@/components/AppLink"
+import AppSideMenu from "@/components/AppSideMenu"
 import IconArrowLong from "@/components/icons/IconArrowLong"
 import IconArrowShort from "@/components/icons/IconArrowShort"
 
@@ -35,6 +40,7 @@ export default {
     IconArrowLong,
     IconArrowShort,
     AppTitle,
+    AppSideMenu,
     AppLink,
   },
 
