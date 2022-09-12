@@ -1,10 +1,20 @@
-$map-fonts: (
+$map-fonts-os: (
   $font-weight-regular: "Regular",
   $font-weight-light: "Light",
   $font-weight-bold: "Bold",
 );
+$map-fonts-kp: (
+  $font-weight-regular: "Regular",
+  $font-weight-light: "Light",
+  $font-weight-bold: "Bold",
+  $font-weight-medium: "Medium",
+  $font-weight-semibold: "Semibold",
+);
+$map-fonts-futura: (
+  $font-weight-bold: "Bold",
+);
 
-@each $name, $value in $map-fonts {
+@each $name, $value in $map-fonts-os {
   @font-face {
     font-weight: $name;
     font-family: "Open Sans";
@@ -12,6 +22,27 @@ $map-fonts: (
     src: local("Open Sans #{$value}"), local("Open-Sans-#{$value}"),
       local("OpenSans-#{$value}"), local("OpenSans #{$value}"),
       url("@/assets/fonts/OpenSans-#{$value}.woff2");
-    font-display: optional;
+    font-display: swap;
+  }
+}
+
+@each $name, $value in $map-fonts-kp {
+  @font-face {
+    font-weight: $name;
+    font-family: Kinopoisk;
+    font-style: normal;
+    src: local("Kinopoisk #{$value}"), local("Kinopoisk-#{$value}"),
+      url("@/assets/fonts/Kinopoisk-#{$value}.woff2");
+    font-display: swap;
+  }
+}
+@each $name, $value in $map-fonts-futura {
+  @font-face {
+    font-weight: $name;
+    font-family: Futura;
+    font-style: normal;
+    src: local("Futura #{$value}"), local("Futura-#{$value}"),
+      url("@/assets/fonts/Futura-#{$value}.woff2");
+    font-display: swap;
   }
 }

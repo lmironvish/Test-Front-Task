@@ -5,10 +5,7 @@
     <AppLink class="home__link-kinopoisk" :data-item="linkKinopoisk"
       >hd.kinopoisk.ru</AppLink
     >
-    <AppSideMenu>
-      <template #numeration>Скрольте вниз</template>
-      <template #content>Скрольте вниз</template>
-    </AppSideMenu>
+    <AppSideMenu />
     <AppLink class="home__link-scroll" :data-item="linkKinopoisk" icon="left">
       <template #default>Скрольте вниз</template>
       <template #icon>
@@ -60,6 +57,7 @@ export default {
 <style lang="scss">
 .home {
   position: relative;
+  @include container;
 
   display: flex;
   flex-direction: column;
@@ -89,16 +87,25 @@ export default {
 
   transform: translate(0%, 100%) rotate(90deg);
   transform-origin: top right;
+  @media (min-width: 1050px) {
+    top: 50%;
+    right: 2%;
+  }
 }
 
 .home__link-scroll {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
+  bottom: 0%;
+  left: 3%;
   z-index: 10;
 
   transform: translate(0%, 0%) rotate(-90deg);
   transform-origin: top left;
+
+  @media (min-width: 1050px) {
+    bottom: 0%;
+    left: 3%;
+  }
 }
 
 .home__link-promo {

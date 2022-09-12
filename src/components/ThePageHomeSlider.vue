@@ -75,12 +75,15 @@ export default {
 </script>
 
 <style lang="scss">
-.page-home-slider {
-  position: relative;
+.page-home-slider__slider {
+  max-width: 600px;
+  @media (min-width: 1050px) {
+    max-width: 1200px;
+  }
 }
 
-.page-home-slider__slider {
-  max-width: 1200px;
+.page-home-slider {
+  position: relative;
 }
 
 .page-home-slider__slider-progress {
@@ -100,13 +103,21 @@ export default {
   transform: translate(-50%, 0%);
 
   &_left {
-    left: 0%;
+    @media (min-width: 1050px) {
+      left: -5%;
+    }
+
+    left: -10%;
 
     transform: rotate(180deg);
   }
 
   &_right {
-    right: 0%;
+    @media (min-width: 1050px) {
+      right: -8%;
+    }
+
+    right: -12%;
   }
 
   &__sky {

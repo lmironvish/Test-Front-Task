@@ -27,11 +27,6 @@
         </p>
       </swiper-slide>
     </swiper>
-    <img
-      class="slider__img-sky-bottom"
-      :src="require('@/assets/images/frontClouds.png')"
-      alt="slide"
-    />
   </div>
 </template>
 
@@ -137,11 +132,16 @@ export default {
     z-index: 1;
 
     width: 100%;
-    max-width: 303px;
-    height: 214px;
+    max-width: 250px;
+    height: 150px;
     margin: 0 auto;
 
     pointer-events: none;
+
+    @media (min-width: 1050px) {
+      max-width: 303px;
+      height: 215px;
+    }
   }
 
   &__img {
@@ -160,39 +160,37 @@ export default {
     width: 100%;
     margin: 0 auto;
 
-    font-size: 20px;
-    line-height: 32px;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: Kinopoisk, sans-serif;
+    line-height: 21px;
     text-align: center;
 
     pointer-events: none;
+    @media (min-width: 1050px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
   }
 
   &__img-sky {
     position: absolute;
-    top: -58px;
-    left: -260px;
+    top: -35px;
+    left: -130px;
     z-index: 2;
 
-    width: 1440px;
+    width: 900px;
     height: auto;
 
     transition: all 0.3s;
 
     pointer-events: none;
-  }
+    @media (min-width: 1050px) {
+      top: -70px;
+      left: -260px;
 
-  &__img-sky-bottom {
-    position: absolute;
-    top: -58px;
-    left: -260px;
-    z-index: -1;
-
-    width: 1440px;
-    height: auto;
-
-    transition: all 0.3s;
-
-    pointer-events: none;
+      width: 1440px;
+    }
   }
 }
 </style>

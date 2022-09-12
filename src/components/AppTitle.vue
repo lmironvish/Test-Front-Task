@@ -16,7 +16,8 @@ export default {
 .title__caption {
   color: #ffcc64;
   font-weight: 700;
-  font-size: 45px;
+  font-size: 40px;
+  font-family: Futura, sans-serif;
   line-height: 72px;
   text-align: center;
   text-transform: uppercase;

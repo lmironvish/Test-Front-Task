@@ -32,9 +32,8 @@ export default {
   justify-content: center;
 
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
-  padding: 20px 30px;
+  padding: 20px 20px 10px;
 
   &__logo {
     color: $var-color-black;
