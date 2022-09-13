@@ -186,7 +186,7 @@ export default {
 
     pointer-events: none;
     @media (min-width: 1050px) {
-      top: -70px;
+      top: -71px;
       left: -260px;
 
       width: 1440px;

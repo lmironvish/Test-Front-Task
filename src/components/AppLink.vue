@@ -72,6 +72,10 @@ export default {
     order: 1;
 
     color: inherit;
+    font-size: 14px;
+    @media (min-width: 1050px) {
+      font-size: 18px;
+    }
   }
 
   &_icon-left .link__icon {

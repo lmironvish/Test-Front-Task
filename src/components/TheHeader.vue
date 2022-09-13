@@ -25,6 +25,8 @@ export default {
 
 <style lang="scss">
 .header {
+  @include container;
+
   position: relative;
 
   display: flex;
